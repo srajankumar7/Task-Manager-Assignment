@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task manager Application</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <h1> Task Manager </h1>
+
+    <!-- Progress Tracker -->
+    <div class="progress-container">
+      <div id="progressBar"></div>
+    </div>
+    <p id="progressText">0 of 0 tasks completed</p>
+
+    <div class="input-container">
+      <input type="text" id="taskInput" placeholder="Add a new task...">
+      <button id="addBtn"> Add</button>
+    </div>
+    <ul id="taskList"></ul>
+  </div>
+</body>
+</html>

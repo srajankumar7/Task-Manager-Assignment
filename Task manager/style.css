@@ -1,0 +1,133 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  margin: 0;
+  padding: 40px;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  background: #ffffffdd;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  animation: fadeIn 0.8s ease;
+}
+
+h1 {
+  text-align: center;
+  color: #ff5851;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+/* Progress Bar */
+.progress-container {
+  width: 100%;
+  background: #eee;
+  border-radius: 10px;
+  height: 20px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+#progressBar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #ff5851, #ff9a9e);
+  border-radius: 10px;
+  transition: width 0.4s ease;
+}
+
+#progressText {
+  text-align: center;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.input-container {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  flex-grow: 1;
+  padding: 12px;
+  border-radius: 10px 0 0 10px;
+  border: none;
+  outline: none;
+  background: #fff;
+  font-size: 1rem;
+}
+
+button {
+  padding: 12px 20px;
+  background-color: #ff5851;
+  color: #fff;
+  border: none;
+  border-radius: 0 10px 10px 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+button:hover {
+  background-color: #ff403a;
+  transform: scale(1.05);
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  margin-bottom: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  animation: slideIn 0.4s ease;
+}
+
+li span {
+  flex-grow: 1;
+  font-size: 1rem;
+}
+
+li.completed span {
+  text-decoration: line-through;
+  color: #888;
+}
+
+li .actions {
+  display: flex;
+  gap: 10px;
+}
+
+li button {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+li button:hover {
+  transform: scale(1.2);
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(-20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes slideIn {
+  from {opacity: 0; transform: translateX(-30px);}
+  to {opacity: 1; transform: translateX(0);}
+}
