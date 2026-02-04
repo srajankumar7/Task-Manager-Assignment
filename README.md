@@ -64,28 +64,7 @@ Error & success messages
 Smooth animations with Framer Motion
 Clean, professional layout
 
-📁 Project Structure
-Task-Manager/
-│
-├── frontend/
-│   ├── src/
-│   │   ├── api/              # Axios configuration
-│   │   ├── components/       # Reusable UI components
-│   │   ├── context/          # Auth context & hooks
-│   │   ├── pages/            # Login, Signup, Dashboard, Tasks, Profile
-│   │   ├── App.jsx
-│   │   └── main.jsx
-│   └── package.json
-│
-├── backend/
-│   ├── controllers/          # Route logic
-│   ├── middleware/           # Auth & error middleware
-│   ├── models/               # Mongoose schemas
-│   ├── routes/               # API routes
-│   ├── server.js
-│   └── package.json
-│
-└── README.md
+
 
 ⚙️ Setup Instructions
 1️⃣ Clone the repository
