@@ -7,11 +7,19 @@ dotenv.config();
 
 const app = express();
 
-// ✅ Database connection
+// ✅ Database connection (DEPLOYMENT SAFE)
+if (!process.env.MONGO_URI) {
+  console.error('❌ MONGO_URI not found in environment variables');
+  process.exit(1);
+}
+
 mongoose
-  .connect(process.env.MONGO_URI || 'mongodb://localhost:27017/intern-assignment')
+  .connect(process.env.MONGO_URI)
   .then(() => console.log('✅ MongoDB Connected'))
-  .catch((err) => console.error('❌ MongoDB Error:', err));
+  .catch((err) => {
+    console.error('❌ MongoDB Error:', err.message);
+    process.exit(1);
+  });
 
 // ✅ Middleware
 app.use(cors());
