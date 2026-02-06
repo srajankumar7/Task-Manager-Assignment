@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Task Manager – Auth & Dashboard Assignment
 
 A full-stack Task Manager web application built as part of the Frontend Developer Intern – Shortlisting Assignment.
@@ -70,49 +71,4 @@ Clean, professional layout
 1️⃣ Clone the repository
 git clone https://github.com/srajankumar7/Task-Manager-Assignment.git
 cd Task-Manager-Assignment
-
-2️⃣ Backend Setup
-cd backend
-npm install
-
-
-Create a .env file:
-
-PORT=5000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_secret_key
-
-
-Run backend:
-npm run dev
-
-
-Backend will run at:
-http://localhost:5000
-
-3️⃣ Frontend Setup
-cd ../frontend
-npm install
-npm run dev
-
-
-Frontend will run at:
-http://localhost:3000
-
-🔗 API Endpoints (v1)
-Auth
-POST /api/v1/auth/signup
-POST /api/v1/auth/login
-
-Profile:
-GET /api/v1/me
-PUT /api/v1/me
-
-Tasks:
-POST /api/v1/tasks
-GET /api/v1/tasks
-
-GET /api/v1/tasks/:id
-PUT /api/v1/tasks/:id
-
-DELETE /api/v1/tasks/:id
+=======

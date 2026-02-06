@@ -15,22 +15,38 @@ export default function Navbar() {
   };
 
   const navItems = [
-    { path: '/dashboard', label: 'Dashboard', icon: '◆' },
-    { path: '/tasks', label: 'Tasks', icon: '✓' },
+    { 
+      path: '/dashboard', 
+      label: 'Dashboard',
+      icon: (
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+        </svg>
+      )
+    },
+    { 
+      path: '/tasks', 
+      label: 'Tasks',
+      icon: (
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+        </svg>
+      )
+    },
   ];
 
   return (
-    <nav className="border-b border-white/10 bg-black/50 backdrop-blur-xl sticky top-0 z-50">
+    <nav className="border-b border-slate-200 bg-white sticky top-0 z-50 shadow-sm">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/dashboard" className="flex items-center gap-3">
-            <div className="w-12 h-12 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-2xl flex items-center justify-center">
-              <span className="text-xl font-bold">T</span>
+          <Link to="/dashboard" className="flex items-center gap-3 group">
+            <div className="w-11 h-11 bg-slate-800 rounded-xl flex items-center justify-center group-hover:bg-slate-700 transition-colors">
+              <span className="text-xl font-bold text-white">T</span>
             </div>
             <div>
-              <h1 className="text-xl font-bold">TaskFlow</h1>
-              <p className="text-xs text-gray-400">Manage Better</p>
+              <h1 className="text-xl font-semibold text-slate-800">TaskFlow</h1>
+              <p className="text-xs text-slate-500">Manage Better</p>
             </div>
           </Link>
 
@@ -42,21 +58,21 @@ export default function Navbar() {
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`relative px-5 py-2.5 rounded-xl font-medium transition-all ${
+                  className={`relative px-4 py-2.5 rounded-lg font-medium transition-all ${
                     isActive
-                      ? 'text-white'
-                      : 'text-gray-400 hover:text-white'
+                      ? 'text-slate-800'
+                      : 'text-slate-600 hover:text-slate-800 hover:bg-slate-50'
                   }`}
                 >
                   {isActive && (
                     <motion.div
                       layoutId="navbar-active"
-                      className="absolute inset-0 bg-emerald-500/20 border border-emerald-500/30 rounded-xl"
+                      className="absolute inset-0 bg-slate-100 border border-slate-200 rounded-lg"
                       transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
                     />
                   )}
                   <span className="relative flex items-center gap-2">
-                    <span>{item.icon}</span>
+                    {item.icon}
                     {item.label}
                   </span>
                 </Link>
@@ -67,26 +83,26 @@ export default function Navbar() {
           {/* Right Side: User Info, Profile Icon, Logout */}
           <div className="flex items-center gap-3">
             {/* User Avatar & Info */}
-            <div className="flex items-center gap-3 px-4 py-2 bg-white/5 rounded-xl border border-white/10">
-              <div className="w-10 h-10 bg-gradient-to-br from-violet-500 to-purple-500 rounded-full flex items-center justify-center">
-                <span className="text-sm font-semibold">
+            <div className="flex items-center gap-3 px-4 py-2 bg-slate-50 rounded-lg border border-slate-200">
+              <div className="w-9 h-9 bg-blue-600 rounded-full flex items-center justify-center">
+                <span className="text-sm font-semibold text-white">
                   {user?.name?.charAt(0).toUpperCase() || 'U'}
                 </span>
               </div>
               <div className="hidden md:block">
-                <p className="text-sm font-medium">{user?.name || 'User'}</p>
-                <p className="text-xs text-gray-400">{user?.email || ''}</p>
+                <p className="text-sm font-medium text-slate-800">{user?.name || 'User'}</p>
+                <p className="text-xs text-slate-600">{user?.email || ''}</p>
               </div>
             </div>
 
             {/* Profile Icon Button */}
             <Link
               to="/profile"
-              className="p-2.5 bg-purple-500/10 hover:bg-purple-500/20 border border-purple-500/20 hover:border-purple-500/40 rounded-xl transition-all group"
+              className="p-2.5 bg-slate-100 hover:bg-slate-200 border border-slate-200 rounded-lg transition-all group"
               title="Profile Settings"
             >
               <svg 
-                className="w-5 h-5 text-purple-400 group-hover:text-purple-300 transition-colors" 
+                className="w-5 h-5 text-slate-700 group-hover:text-slate-900 transition-colors" 
                 fill="none" 
                 viewBox="0 0 24 24" 
                 stroke="currentColor"
@@ -109,7 +125,7 @@ export default function Navbar() {
             {/* Logout Button */}
             <button
               onClick={handleLogout}
-              className="px-4 py-2.5 bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/20 hover:border-red-500/40 rounded-xl font-medium transition-all flex items-center gap-2"
+              className="px-4 py-2.5 bg-red-50 hover:bg-red-100 text-red-600 border border-red-200 hover:border-red-300 rounded-lg font-medium transition-all flex items-center gap-2"
             >
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
